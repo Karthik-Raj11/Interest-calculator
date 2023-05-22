@@ -1,0 +1,25 @@
+def interest_p(p,r,final_months,days):
+    interest = p*r*final_months//100
+    print("First amount:",p)
+    print("Rate :",r,"/-")
+    print("months :",final_months )
+    print("days :",days)
+    print("interest :",interest )
+    amount = p + interest
+    return amount
+
+final_date = list(map(int,input().split("-")))
+initial_date = list(map(int,input().split("-")))
+p = int(input())
+r = int(input())
+if final_date[-1] >= initial_date[-1]:
+    days = (final_date[-1] - initial_date[-1])
+else:
+    days = ((30+final_date[-1]) - initial_date[-1])
+if final_date[-2] >= initial_date[-2]:
+    months = (final_date[-2] - initial_date[-2])
+else:
+    months = ((12 + final_date[-2]) - initial_date[-2])
+years = (final_date[-3] - initial_date[-3])
+final_months = ((years*12) + months)
+print("amount :",interest_p(p,r,final_months,days))
